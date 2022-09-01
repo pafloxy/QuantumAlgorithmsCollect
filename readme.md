@@ -1,0 +1,5 @@
+## **Probing the nature of Boolean Functions !**
+
+The Deusth-Josza algorithm gives aus an way of determining whether a given boolen fucntion $ \mathtt{f}: \{0,1\}^n \to \{1,0\} $ is balanced or constant, within a limited circuit depth. However, simply knowing a function to be balanced or constatnt doesn't reveal much about the nature of the boolean function itself, for example one might be interested in knowing what are the number of inputs $\mathtt{\vec{x}}$ such that $\: \mathtt{f(\vec{x}) = 1 }\: $ or $\: \mathtt{f(\vec{x}) = 0 }\:$ for that matter. Moreover assuming the $\: \mathtt{f} \:$, to be either balanced or constant comprises the wide range of possible boolean functions.
+
+To deal with this I have made a slight modification to or regular DJ algorithm, such that it allows us to probe into the nature of the boolean function by recasting necessary information into the amplitude of ancilla qubits. Once we done, we can read off the required iinformation from the probability distribution of the ancilla qubit itself. Below I give a brief overview of the algorithm and then move on to an example implementation
