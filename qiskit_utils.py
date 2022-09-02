@@ -17,11 +17,11 @@ from IPython.display import Image
 import matplotlib.pyplot as plt
 
 
-provider = IBMQ.load_account()
-IBMQ.get_provider(hub='ibm-q-education', group='iit-madras-1', project='quantum-computin')
-# setup required backends 
-lima = provider.get_backend('ibmq_lima')
-manila = provider.get_backend('ibmq_manila')
+# provider = IBMQ.load_account()
+# IBMQ.get_provider(hub='ibm-q-education', group='iit-madras-1', project='quantum-computin')
+# # setup required backends 
+# lima = provider.get_backend('ibmq_lima')
+# manila = provider.get_backend('ibmq_manila')
 qsm = Aer.get_backend('qasm_simulator')
 stv = Aer.get_backend('statevector_simulator')
 aer = Aer.get_backend('aer_simulator')
