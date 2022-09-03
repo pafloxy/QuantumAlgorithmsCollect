@@ -16,9 +16,14 @@ In later generalisation we can try to compare two different sets , say $\mathcal
 Note also that we want our algorithm to work even while the elements of $\mathcal{S}s$ are not all orthogonal to each other, as otherwise it would be of no real to use a quantum computer in the first place.geves
 
 
+### **Entanglement Preserving Partial Grover**
 
+Assume that you have a state of form,
+$$              \ket{\psi} \:=\: c_g \ket{g}\ket{f(g)} \:+\: c_b \ket{b}\ket{f(b)}
+$$
+where $\ket{g}$ is something we refer as `good` states and $\ket{b}$ as `bad` states and $f$ is a randomised black box function of whose action is not known to us i.e we do not know what $\ket{f(g)}$ or $\ket{f(b)}$ is, moreover it might yield different values upon every call, but it is somehow dependent on the ket to which it is entangeld to i.e either $\ket{g}$ or $\ket{b}$
 
-
+Given this the challenge is to amplify the states corresponding to the `good` states $c_g$. Notice that regular `Grover Search` cannot be used in this case because we do not have sufficient information about the initial state $\ket{\psi}$ to construct the `diffuser`!
 
 
 
