@@ -16,7 +16,7 @@ In later generalisation we can try to compare two different sets , say $\mathcal
 Note also that we want our algorithm to work even while the elements of $\mathcal{S}s$ are not all orthogonal to each other, as otherwise it would be of no real to use a quantum computer in the first place.geves
 
 
-### **Entanglement Preserving Partial Grover**
+### **3. Entanglement Preserving Partial Grover**
 
 Assume that you have a state of form,
 $$              \ket{\psi} \:=\: c_g \ket{g}\ket{f(g)} \:+\: c_b \ket{b}\ket{f(b)}
