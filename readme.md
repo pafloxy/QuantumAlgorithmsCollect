@@ -1,13 +1,13 @@
 ## Quantum Algorithms Collections
 This repo is meant to be a collection of some of the simple yet useful algoirthms, that have been used to facilatte other more complicated algorithms in some of our projects. Feel free to post more problems or solutions to the mentioned probelms with appropriate documentation.
 
-### ** Probing the nature of Boolean Functions !**
+### **Probing the nature of Boolean Functions !**
 
 The Deusth-Josza algorithm gives us an way of determining whether a given boolen fucntion $ \mathtt{f}: \{0,1\}^n \to \{1,0\} $ is balanced or constant, within a limited circuit depth. However, simply knowing a function to be balanced or constatnt doesn't reveal much about the nature of the boolean function itself, for example one might be interested in knowing what are the number of inputs $\: \mathtt{\vec{x}} \:$ such that $\: \mathtt{f(\vec{x}) = 1 } \:$ or $\: \mathtt{f(\vec{x}) = 0 }\:$ for that matter. Moreover assuming the $\: \mathtt{f} \:$, to be either balanced or constant comprises the wide range of possible boolean functions.
 
 To deal with this I have made a slight modification to or regular DJ algorithm, such that it allows us to probe into the nature of the boolean function by recasting necessary information into the amplitude of ancilla qubits. Once we done, we can read off the required iinformation from the probability distribution of the ancilla qubit itself. Below I give a brief overview of the algorithm and then move on to an example implementation
 
-### ** Database lookup**
+### **Database lookup**
 
 Here our aim is to check whether a particular lookup ket say $\ket{\phi}$ exists within a set of provided set of kets say $\mathcal{S} = \{ \ket{\psi_1}, \ket{\psi_2}, .. . ,\ket{\psi_n }  \}$, and if so then what is the index of that particular ket in $\mathcal{S}$. For example, if $\ket{\phi} = \ket{\psi_3}$ we want to know the index $3$ using our algorithm.
 
@@ -16,7 +16,7 @@ In later generalisation we can try to compare two different sets , say $\mathcal
 Note also that we want our algorithm to work even while the elements of $\mathcal{S}s$ are not all orthogonal to each other, as otherwise it would be of no real to use a quantum computer in the first place.geves
 
 
-### ** Entanglement Preserving Partial Grover**
+### **Entanglement Preserving Partial Grover**
 
 Assume that you have a state of form,
 $$              \ket{\psi} \:=\: c_g \ket{g}\ket{f(g)} \:+\: c_b \ket{b}\ket{f(b)}
@@ -26,7 +26,7 @@ where $\ket{g}$ is something we refer as `good` states and $\ket{b}$ as `bad` st
 Given this the challenge is to amplify the states corresponding to the `good` states $c_g$. Notice that regular `Grover Search` cannot be used in this case because we do not have sufficient information about the initial state $\ket{\psi}$ to construct the `diffuser`!
 
 
-### ** Checking whether a goven sequence is a Palindrome **
+### **Checking whether a goven sequence is a Palindrome **
 To check whether a given sequence is a palindrome or not is a classic programming problem. Recently I came across a quantum version of it at \href{https://github.com/qosf/monthly-challenges}{qosf-monthly-challenges}, where the challenge was to check whether a given sequence of integer is a palindrome or not by using a QRAM structure with added comparators. However, here I will show how we can check for a palindorme even if the alphabets choosen is quantum one, thus genralising the idea of palindrome checking! And it will be an efficient one ...
 
 
