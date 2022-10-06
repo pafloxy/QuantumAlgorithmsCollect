@@ -2,8 +2,8 @@
 This repo is meant to be a collection of some of the simple yet useful algoirthms, that have been used to facilatte other more complicated algorithms in some of our projects. Feel free to post more problems or solutions to the mentioned probelms with appropriate documentation.
 
 ### **Probing the nature of Boolean Functions !**
-
-The Deusth-Josza algorithm gives us an way of determining whether a given boolen fucntion $ \mathtt{f}: \{0,1\}^n \to \{1,0\} $ is balanced or constant, within a limited circuit depth. However, simply knowing a function to be balanced or constatnt doesn't reveal much about the nature of the boolean function itself, for example one might be interested in knowing what are the number of inputs $\: \mathtt{\vec{x}} \:$ such that $\: \mathtt{f(\vec{x}) = 1 } \:$ or $\: \mathtt{f(\vec{x}) = 0 }\:$ for that matter. Moreover assuming the $\: \mathtt{f} \:$, to be either balanced or constant comprises the wide range of possible boolean functions.
+7
+The Deusth-Josza algorithm gives us an way of determining whether a given boolen fucntion $\mathtt{f}: \{0,1\}^n \to \{1,0\}$ is balanced or constant, within a limited circuit depth. However, simply knowing a function to be balanced or constatnt doesn't reveal much about the nature of the boolean function itself, for example one might be interested in knowing what are the number of inputs $\: \mathtt{\vec{x}} \:$ such that $\: \mathtt{f(\vec{x}) = 1 } \:$ or $\: \mathtt{f(\vec{x}) = 0 }\:$ for that matter. Moreover assuming the $\: \mathtt{f} \:$, to be either balanced or constant comprises the wide range of possible boolean functions.
 
 To deal with this I have made a slight modification to or regular DJ algorithm, such that it allows us to probe into the nature of the boolean function by recasting necessary information into the amplitude of ancilla qubits. Once we done, we can read off the required iinformation from the probability distribution of the ancilla qubit itself. Below I give a brief overview of the algorithm and then move on to an example implementation
 
@@ -19,8 +19,7 @@ Note also that we want our algorithm to work even while the elements of $\mathca
 ### **Entanglement Preserving Partial Grover**
 
 Assume that you have a state of form,
-$$              \ket{\psi} \:=\: c_g \ket{g}\ket{f(g)} \:+\: c_b \ket{b}\ket{f(b)}
-$$
+$\ket{\psi} \:=\: c_g \ket{g}\ket{f(g)} \:+\: c_b \ket{b}\ket{f(b)}$
 where $\ket{g}$ is something we refer as `good` states and $\ket{b}$ as `bad` states and $f$ is a randomised black box function of whose action is not known to us i.e we do not know what $\ket{f(g)}$ or $\ket{f(b)}$ is, moreover it might yield different values upon every call, but it is somehow dependent on the ket to which it is entangeld to i.e either $\ket{g}$ or $\ket{b}$
 
 Given this the challenge is to amplify the states corresponding to the `good` states $c_g$. Notice that regular `Grover Search` cannot be used in this case because we do not have sufficient information about the initial state $\ket{\psi}$ to construct the `diffuser`!
