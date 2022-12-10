@@ -28,6 +28,9 @@ Given this the challenge is to amplify the states corresponding to the `good` st
 To check whether a given sequence is a palindrome or not is a classic programming problem. Recently I came across a quantum version of it at [qosf-monthly-challenges](https://github.com/qosf/monthly-challenges), where the challenge was to check whether a given sequence of integer is a palindrome or not by using a QRAM structure with added comparators. However, here I will show how we can check for a palindorme even if the alphabets choosen is quantum one, thus genralising the idea of palindrome checking! And it will be an efficient one ...
 
 
+### **[Uniform superposition of Permutations](https://github.com/pafloxy/QuantumPermutationSecretSharing/blob/main/Tutorial_QPSS.ipynb)**
+Here the aim was to design a quantum circuit that could create a uniform suoerposition of a given string of quantum algorithms. We then explore its possible applications to a permutation based secret-sharing algorithm. 
+
 
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
