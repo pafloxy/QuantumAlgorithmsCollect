@@ -25,7 +25,7 @@ Given this the challenge is to amplify the states corresponding to the `good` st
 
 
 ### **[Checking whether a given sequence is a Palindrome](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/quantum-palindrome-check.ipynb)**
-To check whether a given sequence is a palindrome or not is a classic programming problem. Recently I came across a quantum version of it at [https://github.com/qosf/monthly-challenges}{qosf-monthly-challenges], where the challenge was to check whether a given sequence of integer is a palindrome or not by using a QRAM structure with added comparators. However, here I will show how we can check for a palindorme even if the alphabets choosen is quantum one, thus genralising the idea of palindrome checking! And it will be an efficient one ...
+To check whether a given sequence is a palindrome or not is a classic programming problem. Recently I came across a quantum version of it at [qosf-monthly-challenges](https://github.com/qosf/monthly-challenges), where the challenge was to check whether a given sequence of integer is a palindrome or not by using a QRAM structure with added comparators. However, here I will show how we can check for a palindorme even if the alphabets choosen is quantum one, thus genralising the idea of palindrome checking! And it will be an efficient one ...
 
 
 
