@@ -1,5 +1,5 @@
 ## Quantum Algorithms Collections
-This repo is meant to be a collection of some of the simple yet useful algoirthms, that have been used to facilatte other more complicated algorithms in some of our projects. Feel free to post more problems or solutions to the mentioned probelms with appropriate documentation.
+This repo is meant to be a collection of some of the simple yet useful algorithmic techniques, that have been used to facilate other more complicated algorithms in some of our projects. I am yet to complete some of them but feel free to post more problems or solutions to the mentioned probelms with appropriate documentation.
 
 ### **[Probing the nature of Boolean Functions !](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/probing_boolean_funciions.ipynb)**
 The Deusth-Josza algorithm gives us an way of determining whether a given boolen fucntion $\mathtt{f}: \{0,1\}^n \to \{1,0\}$ is balanced or constant, within a limited circuit depth. However, simply knowing a function to be balanced or constatnt doesn't reveal much about the nature of the boolean function itself, for example one might be interested in knowing what are the number of inputs $\: \mathtt{\vec{x}} \:$ such that $\: \mathtt{f(\vec{x}) = 1 } \:$ or $\: \mathtt{f(\vec{x}) = 0 }\:$ for that matter. Moreover assuming the $\: \mathtt{f} \:$, to be either balanced or constant comprises the wide range of possible boolean functions.
@@ -33,10 +33,6 @@ Here the aim was to design a quantum circuit that could create a uniform suoerpo
 
 
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
-
-This work is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
 
