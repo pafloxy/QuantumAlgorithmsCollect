@@ -575,9 +575,9 @@ A person gets to enter the club if and only if there is no *directed path* conne
 You can also see that some of the rewrite rules also become easier to interpret. For example, the fact what the courier can reach the to a certain person $A$ only requires the chosen bitmask $S(x)$ to be compatible to the badges of the people who's vertex can reach $A$'s vertex. 
 
 Note that, once the rewrite happens however, the DAG needs to be redrawn, based on the new compatability. But given the above formula for computing updates of the compatability 
-$$
-f(A^x,R)=f(A,R)\oplus f(S(x),R).
-$$ 
+
+$$f(A^x,R)=f(A,R)\oplus f(S(x),R).$$ 
+
 you can already compute how the edges in the DAG needs to be rewritten due to the choice of the rewrite $S(x)$. Which is great, because using the results in converse you can ask what choice of $S(x)$ will modify the DAG in a way that we want, given ofcourse that the rewrite is legal. 
 
 

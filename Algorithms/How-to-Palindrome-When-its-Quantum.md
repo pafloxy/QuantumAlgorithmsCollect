@@ -158,7 +158,7 @@ state        |phi_2>    |phi_1>     |phi_3>    |phi_2>
 
 You are given access to a length-$N$ sequence of quantum states
 
-$$
+$$-
 \ket{\phi_0},\ket{\phi_1},\ldots,\ket{\phi_{N-1}}.
 $$
 

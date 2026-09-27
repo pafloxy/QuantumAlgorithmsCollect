@@ -1,15 +1,5 @@
----
-title: "But Can You Grover Just the Ancilla?"
-description: "An expensive oracle, a cached answer bit, and a tempting shortcut that amplifies the wrong thing."
-date-display: "18th July 2021"
-slug: "amplify-with-unknown-baggage"
-order: 4
-difficulty: "Hard"
-status: "Worked counterexample"
-changedAssumption: "The expensive verifier can be used only once"
-source: "https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/entanglement_preserving%20_grover.ipynb"
-draft: false
----
+# How to do Grover's algorithm, when you don't know what you are looking for ?
+
 
 I will assume you know the basic idea of Grover's algorithm. [3Blue1Brown's explainer](https://www.youtube.com/watch?v=RQWpF2Gb-gU) is a good place to start otherwise.
 
