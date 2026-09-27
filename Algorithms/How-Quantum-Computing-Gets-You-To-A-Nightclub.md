@@ -188,30 +188,16 @@ These are not replacement badges. Think of them as binary overlays that can be a
 
 The same compatibility function $f$ is defined for the bitmask codes as well. In particular, the three primitive bitmasks are mutually compatible:
 
-$$
-f(\mathrm{BitMask}\ i,\mathrm{BitMask}\ j)=0
-$$ for every pair $i,j$.
+$$f(\mathrm{BitMask}\ i,\mathrm{BitMask}\ j)=0$$ for every pair $i,j$.
 
 So the shop may freely combine several primitive bitmasks into one bitmask. Let,
-$$
-x=x_1x_2x_3\in\{0,1\}^3
-$$ record which primitive bitmasks are selected, and write their combined code as
+$$x=x_1x_2x_3\in\{0,1\}^3$$ record which primitive bitmasks are selected, and write their combined code as
 
-$$
-S(x)
-=
-x_1 \cdot \,\mathrm{BitMask\ 1}
-\: \oplus \:
-x_2 \cdot \,\mathrm{BitMask\ 2}
-\: \oplus \:
-x_3 \cdot \,\mathrm{BitMask\ 3}.
-$$
+$$S(x) = x_1 \cdot \,\mathrm{BitMask\ 1} \: \oplus \: x_2 \cdot \,\mathrm{BitMask\ 2} \: \oplus \: x_3 \cdot \,\mathrm{BitMask\ 3}.$$
 
 For example, $x=101$ means that BitMasks 1 and 3 are selected. If somebody currently carries badge $A$, then whenever the chosen bitmask $S(x)$ is compatible with the badge $A$ i.e $f(A, S(x))=0$, we can legally applicable we write the rewritten badge as 
 
-$$
-A^x:=A\oplus S(x).
-$$
+$$A^x:=A\oplus S(x).$$
 
 For instance,
 
@@ -225,9 +211,7 @@ A^101   : 000010
 
 The useful part is that the rewrite changes compatibility predictably, for any bitstring $R$ the compatibility of the initial bitstring $A$ and the rewritten bitstring $A^x$ is given by :
 
-$$
-f(A^x,R)=f(A,R)\oplus f(S(x),R).
-$$ 
+$$f(A^x,R)=f(A,R)\oplus f(S(x),R).$$ 
 
 i.e the compatibility with the rewritten bitstring $A^x$ with $R$ is the XOR of the compatibility of the initial bitstring $A$ with $R$ and the compatibility of the selected bitmask $S(x)$ with $R$. 
 
@@ -358,17 +342,7 @@ After moving toward the badge shop earlier, the queue is
 
 So David must still move past Charlie before he can reach the bouncers. Originally David and Charlie were compatible, and BitMask 3 is also compatible with Charlie. Therefore the rewrite does not change that relation:
 
-$$
-f(\mathrm{David}^{001},\mathrm{Charlie})
-=
-f(\mathrm{David},\mathrm{Charlie})
-\oplus
-f(\mathrm{BitMask\ 3},\mathrm{Charlie})
-=
-0\oplus0
-=
-0.
-$$
+$$f(\mathrm{David}^{001},\mathrm{Charlie}) = f(\mathrm{David},\mathrm{Charlie}) \oplus f(\mathrm{BitMask\ 3},\mathrm{Charlie}) = 0\oplus0 = 0.$$
 
 So David can still cross Charlie and reach the bouncers. Now look at what the rewrite actually did to his bouncer checks.
 

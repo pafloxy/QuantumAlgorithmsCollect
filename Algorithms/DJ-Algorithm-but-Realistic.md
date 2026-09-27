@@ -1,36 +1,14 @@
-<!--
-Original publication metadata (retained from the MDX source):
----
-title: "Deutsch-Josza but now you count"
-description: "Drop the constant-versus-balanced promise. Can a global property of a black-box Boolean function become the bias of one measured bit?"
-date-display: "18th July 2021"
-slug: "one-bit-boolean-summary"
-order: 2
-difficulty: "Medium"
-status: "Challenge"
-changedAssumption: "The answer is quantitative instead of yes or no"
-source: "https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/probing_boolean_funciions.ipynb"
-draft: false
----
--->
 
-# Deutsch-Josza but now you count
+# Deutsch-Josza but Realistic
+**Assumption :** Deutsch-Josza algorithm 
 
-*Drop the constant-versus-balanced promise. Can a global property of a black-box Boolean function become the bias of one measured bit?*
-
-**18th July 2021** · **Medium** · **Challenge**
-
-> **Changed assumption:** The answer is quantitative instead of yes or no.
-
-[Series index](README.md) · [Original notebook](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/probing_boolean_funciions.ipynb)
+[Series index](README.md) 
 
 ---
 
 Suppose you receive a black-box Boolean function
 
-$$
-f:\{0,1\}^n\to\{0,1\}.
-$$
+$$f:\{0,1\}^n\to\{0,1\}.$$
 
 There are $2^n$ possible inputs. You do not want the entire truth table. You want one global statistic:
 
@@ -62,17 +40,11 @@ The task is to decide which world you are in. Most Boolean functions live in nei
 
 So remove the promise and change the output. Define
 
-$$
-n_1=\left|\{x:f(x)=1\}\right|,
-\qquad
-n_0=2^n-n_1.
-$$
+$$n_1=\left|\{x:f(x)=1\}\right|, \qquad n_0=2^n-n_1.$$
 
 The target quantity is
 
-$$
-p=\frac{n_1}{2^n}.
-$$
+$$p=\frac{n_1}{2^n}.$$
 
 Can $p$ appear directly as a measurement probability of one small register?
 
@@ -80,11 +52,7 @@ Can $p$ appear directly as a measurement probability of one small register?
 
 Take a four-bit function. Suppose
 
-$$
-n_1=7,
-\qquad
-n_0=9.
-$$
+$$n_1=7, \qquad n_0=9.$$
 
 ```text
               ONE POSSIBLE SIXTEEN-INPUT FUNCTION
@@ -132,23 +100,15 @@ That distinction matters.
 
 You are given coherent oracle access to a Boolean function
 
-$$
-f:\{0,1\}^n\to\{0,1\}.
-$$
+$$f:\{0,1\}^n\to\{0,1\}.$$
 
 Design a small quantum experiment whose output bit $b$ satisfies
 
-$$
-\Pr[b=1]=\frac{n_1}{2^n},
-\qquad
-\Pr[b=0]=\frac{n_0}{2^n}.
-$$
+$$\Pr[b=1]=\frac{n_1}{2^n}, \qquad \Pr[b=0]=\frac{n_0}{2^n}.$$
 
 You are not promised that $f$ is constant or balanced. A phase-oracle model is available:
 
-$$
-\ket{x}\longmapsto(-1)^{f(x)}\ket{x}.
-$$
+$$\ket{x}\longmapsto(-1)^{f(x)}\ket{x}.$$
 
 You may use a uniform superposition over the inputs and a small control register. What is the simplest coherent construction, and what information does one run provide compared with many runs?
 

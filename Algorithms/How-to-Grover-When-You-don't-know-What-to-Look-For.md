@@ -5,8 +5,7 @@ I will assume you know the basic idea of Grover's algorithm. [3Blue1Brown's expl
 
 Below we will discuss a slightly modified version of the Grover's algorithm. In traditional grover, at least what you might have learnt in class, you are usually told the bitstring you are looking for based on which you design the oracle and the diffuser and an iterative applicaiton of the oracle and the diffuser unitaries is supposed to enhance the amplitude of the bitstring we are looking for. 
 
-However this hides a lot of the assumptions that are implicit in the Grover's algorithm, and the aim here is to bring this assumptions to light by slightly modifying the underlying primitives. 
-
+However this particular approach hides a lot of the assumptions that are implicit in the Grover's algorithm, and the aim here is to bring this assumptions to light by slightly modifying the underlying primitives. 
 
 I will start by breifly reminding you about the ususal primitives of the Grover's algorithm for small example and then introduce the altered version --- ofcourese by practically motivating it --- and we will examine how things change. Spoilier alert, I will restrict the number of times you can call the oracle to be just one, and show how a naive workaround --- that though seem very Grover-like will simply fail to amplify the good-state. 
 
@@ -18,11 +17,7 @@ Let's start with the two-qubit case, the computational basis in this case is spa
 
 
 By convention, we define the oracle unitary as $U_w=I_4-2\ket{w}\bra{w}$. For our chosen $w$, we can construct it explicitly as :
-$$
-U_{10}
-=
-(I_2\otimes X)\,\mathrm{CZ}\,(I_2\otimes X).
-$$
+$$U_{10} = (I_2\otimes X)\,\mathrm{CZ}\,(I_2\otimes X).$$
 
 And the diffuser unitary is defined as  
 $D_s=2\ket{s}\bra{s}-I_4$.
@@ -32,30 +27,14 @@ $D_s=2\ket{s}\bra{s}-I_4$.
 
 
 We start with the equal superposition of all the computational basis states :
-$$
-\ket{s}
-=
-\frac{1}{2}
-\left(
-\ket{00}+\ket{01}+\ket{10}+\ket{11}
-\right).
-$$
+$$\ket{s} = \frac{1}{2} \left( \ket{00}+\ket{01}+\ket{10}+\ket{11} \right).$$
 
 
 As known, the action of the oracle unitary
-$$
-U_{10}\ket{s}
-=
-\frac{1}{2}
-\left(
-\ket{00}+\ket{01}-\ket{10}+\ket{11}
-\right).
-$$ flips the sign of the bistring that we are looking for. 
+$$U_{10}\ket{s} = \frac{1}{2} \left( \ket{00}+\ket{01}-\ket{10}+\ket{11} \right).$$ flips the sign of the bistring that we are looking for. 
 
 And in this case you can see that applying the diffuser follwed by the diffuser on $\ket{s}$ maps it to $w$
-$$
-D_sU_{10}\ket{s}=\ket{10}.
-$$
+$$D_sU_{10}\ket{s}=\ket{10}.$$
 Which is exactly what you would expect with Grover's algorithm. No surprises as of now. 
 
 
@@ -105,35 +84,19 @@ So the question now is, can you do somehow still use some version of the Grover'
 >
 > You are given an unknown $n$-qubit state
 >
-> $$
-> \ket{\psi}
-> =
-> \sum_{x\in\{0,1\}^n}c_x\ket{x},
-> $$
+> $$\ket{\psi} = \sum_{x\in\{0,1\}^n}c_x\ket{x},$$
 >
 > and there exists one unknown computational-basis state $\ket{w}$ that we call the good state.
 >
 > You are allowed exactly **one** call to an expensive oracle $U'_w$, which writes whether a basis state is $w$ into a one-qubit ancilla:
 >
-> $$
-> U'_w\ket{\psi}\ket{0}
-> =
-> \sum_{x\neq w}c_x\ket{x}\ket{0}
-> +
-> c_w\ket{w}\ket{1}
-> =
-> \ket{\Psi'}.
-> $$
+> $$U'_w\ket{\psi}\ket{0} = \sum_{x\neq w}c_x\ket{x}\ket{0} + c_w\ket{w}\ket{1} = \ket{\Psi'}.$$
 >
 > After this call you cannot use $U'_w$, or another oracle that knows $w$, again.
 >
 > Starting only from $\ket{\Psi'}$ and operations that do not require knowing $w$, can you increase
 >
-> $$
-> \Pr(\text{main register}=w)
-> =
-> |c_w|^2
-> $$
+> $$\Pr(\text{main register}=w) = |c_w|^2$$
 >
 > in a Grover-like way?
 >
@@ -172,19 +135,11 @@ Unfortunately I will stop here, the challenge for you is to see if you can recov
 
 > **The challenge, in one line:** starting from
 >
-> $$
-> \ket{\Psi'}
-> =
-> \sum_{x\neq w}c_x\ket{x}\ket{0}
-> +
-> c_w\ket{w}\ket{1},
-> $$
+> $$\ket{\Psi'} = \sum_{x\neq w}c_x\ket{x}\ket{0} + c_w\ket{w}\ket{1},$$
 >
 > with no more calls to the expensive oracle, can you construct a $$w$$-independent Grover-like iteration that makes
 >
-> $$
-> \Pr(\text{main register}=w)
-> $$
+> $$\Pr(\text{main register}=w)$$
 >
 > larger than $$|c_w|^2$$?
 >
@@ -202,117 +157,41 @@ Let us return to exactly the two-qubit example from the beginning.
 
 Take
 
-$$
-\ket{\psi}
-=
-\ket{s}
-=
-\frac{1}{2}
-\left(
-\ket{00}
-+
-\ket{01}
-+
-\ket{10}
-+
-\ket{11}
-\right),
-$$
+$$\ket{\psi} = \ket{s} = \frac{1}{2} \left( \ket{00} + \ket{01} + \ket{10} + \ket{11} \right),$$
 
 and, unknown to the algorithm, let $w=10$.
 
 After spending our single expensive call to $U'_w$, we have
 
-$$
-\ket{\Psi'}
-=
-\frac{1}{2}
-\left(
-\ket{00}\ket{0}
-+
-\ket{01}\ket{0}
-+
-\ket{10}\ket{1}
-+
-\ket{11}\ket{0}
-\right).
-$$
+$$\ket{\Psi'} = \frac{1}{2} \left( \ket{00}\ket{0} + \ket{01}\ket{0} + \ket{10}\ket{1} + \ket{11}\ket{0} \right).$$
 
 The ancilla perfectly identifies the good branch.
 
 We already know how to mark ancilla state $\ket{1}$:
 
-$$
-U_1
-=
-I_{\mathrm{main}}
-\otimes
-\left(
-I-2\ket{1}\bra{1}
-\right).
-$$
+$$U_1 = I_{\mathrm{main}} \otimes \left( I-2\ket{1}\bra{1} \right).$$
 
 Therefore
 
-$$
-U_1\ket{\Psi'}
-=
-\frac{1}{2}
-\left(
-\ket{00}\ket{0}
-+
-\ket{01}\ket{0}
--
-\ket{10}\ket{1}
-+
-\ket{11}\ket{0}
-\right).
-$$
+$$U_1\ket{\Psi'} = \frac{1}{2} \left( \ket{00}\ket{0} + \ket{01}\ket{0} - \ket{10}\ket{1} + \ket{11}\ket{0} \right).$$
 
 Now we need something playing the role of the diffuser.
 
 Since the ancilla is only one qubit, a tempting choice is
 
-$$
-D_{\mathrm{anc}}
-=
-I_{\mathrm{main}}
-\otimes
-\left(
-2\ket{+}\bra{+}-I
-\right).
-$$
+$$D_{\mathrm{anc}} = I_{\mathrm{main}} \otimes \left( 2\ket{+}\bra{+}-I \right).$$
 
 For one qubit,
 
-$$
-2\ket{+}\bra{+}-I=X,
-$$
+$$2\ket{+}\bra{+}-I=X,$$
 
 so
 
-$$
-D_{\mathrm{anc}}
-=
-I_{\mathrm{main}}\otimes X.
-$$
+$$D_{\mathrm{anc}} = I_{\mathrm{main}}\otimes X.$$
 
 Applying it gives
 
-$$
-D_{\mathrm{anc}}U_1\ket{\Psi'}
-=
-\frac{1}{2}
-\left(
-\ket{00}\ket{1}
-+
-\ket{01}\ket{1}
--
-\ket{10}\ket{0}
-+
-\ket{11}\ket{1}
-\right).
-$$
+$$D_{\mathrm{anc}}U_1\ket{\Psi'} = \frac{1}{2} \left( \ket{00}\ket{1} + \ket{01}\ket{1} - \ket{10}\ket{0} + \ket{11}\ket{1} \right).$$
 
 Now something suspicious has happened.
 
@@ -326,21 +205,13 @@ Nothing has amplified $\ket{10}$.
 
 In fact, the branches carrying ancilla $1$ are now
 
-$$
-\ket{00}\ket{1},
-\qquad
-\ket{01}\ket{1},
-\qquad
-\ket{11}\ket{1},
-$$
+$$\ket{00}\ket{1}, \qquad \ket{01}\ket{1}, \qquad \ket{11}\ket{1},$$
 
 which are precisely the three wrong answers.
 
 The actual solution is sitting under ancilla $0$:
 
-$$
--\ket{10}\ket{0}.
-$$
+$$-\ket{10}\ket{0}.$$
 
 So $\Pr(\text{main}=10\mid\text{ancilla}=1)=0$.
 

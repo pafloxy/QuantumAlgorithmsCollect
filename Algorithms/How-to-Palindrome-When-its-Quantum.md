@@ -76,9 +76,7 @@ symbol             1     3     2     3     1
 
 we test `1 == 1`, then `3 == 3`, and we are done. More generally, for a sequence of length $N$, the palindrome condition is
 
-$$
-s_i=s_{N-1-i}
-$$
+$$s_i=s_{N-1-i}$$
 
 for every mirrored position $i$.
 
@@ -88,9 +86,7 @@ Classically, this is uninteresting because exact comparison is built into the da
 
 Suppose a letter is a quantum state. Our alphabet might look schematically like this 
 
-$$
-\mathcal A=\left\{\ket{\phi_1},\ket{\phi_2},\ket{\phi_3},\ldots\right\}.
-$$
+$$\mathcal A=\left\{\ket{\phi_1},\ket{\phi_2},\ket{\phi_3},\ldots\right\}.$$
 
 where each $\ket{\phi_i}$ is an unknown quantum state. 
 
@@ -123,15 +119,11 @@ But don't worry, I got you covered ! The global question still makes sense.
 
 Consider
 
-$$
-\ket{\phi_2}\;\ket{\phi_1}\;\ket{\phi_3}\;\ket{\phi_2}.
-$$
+$$\ket{\phi_2}\;\ket{\phi_1}\;\ket{\phi_3}\;\ket{\phi_2}.$$
 
 The outside pair matches, while
 
-$$
-\ket{\phi_1}\ne\ket{\phi_3}.
-$$
+$$\ket{\phi_1}\ne\ket{\phi_3}.$$
 
 So the sequence is not a palindrome. The catch is that $\ket{\phi_1}$ and $\ket{\phi_3}$ might be very close as quantum states. One measurement on each need not reveal their identities with certainty.
 
@@ -158,23 +150,17 @@ state        |phi_2>    |phi_1>     |phi_3>    |phi_2>
 
 You are given access to a length-$N$ sequence of quantum states
 
-$$-
-\ket{\phi_0},\ket{\phi_1},\ldots,\ket{\phi_{N-1}}.
-$$
+$$- \ket{\phi_0},\ket{\phi_1},\ldots,\ket{\phi_{N-1}}.$$
 
 Decide whether every mirrored pair represents the same state:
 
-$$
-\ket{\phi_i}=\ket{\phi_{N-1-i}}
-$$
+$$\ket{\phi_i}=\ket{\phi_{N-1-i}}$$
 
 for all relevant $i$.
 
 You may assume that $N$ is a power of two and that the sequence is available coherently with an index register, for example in a normalized state proportional to
 
-$$
-\sum_i\ket{\phi_i}\ket{i}.
-$$
+$$\sum_i\ket{\phi_i}\ket{i}.$$
 
 where $\braket{i|j} = \delta_{ij}$
 
@@ -191,9 +177,7 @@ What test would you design, and what correctness guarantee is physically possibl
 
 
 You can start by observing one key property of the indexed quantum state 
-$$
-\sum_i\ket{\phi_i}\ket{i}.
-$$
+$$\sum_i\ket{\phi_i}\ket{i}.$$
 
 Even though you cannot compare the equality of the states $\ket{\phi_i}$ themselves, the indices $\ket{i}$ are classically comparable i.e you can tell the index $\ket{1}$ and $\ket{2}$ different classically because how the encoding works. 
 
