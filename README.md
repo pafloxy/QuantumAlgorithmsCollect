@@ -1,41 +1,79 @@
-## Quantum Algorithms Collections
-This repo is meant to be a collection of some of the simple yet useful algorithmic techniques, that have been used to facilate other more complicated algorithms in some of our projects. I am yet to complete some of them but feel free to post more problems or solutions to the mentioned probelms with appropriate documentation.
+# Quantum Algorithms Collect
 
-### **[Probing the nature of Boolean Functions !](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/probing_boolean_funciions.ipynb)**
-The Deusth-Josza algorithm gives us an way of determining whether a given boolen fucntion $\mathtt{f}: \{0,1\}^n \to \{1,0\}$ is balanced or constant, within a limited circuit depth. However, simply knowing a function to be balanced or constatnt doesn't reveal much about the nature of the boolean function itself, for example one might be interested in knowing what are the number of inputs $\: \mathtt{\vec{x}} \:$ such that $\: \mathtt{f(\vec{x}) = 1 } \:$ or $\: \mathtt{f(\vec{x}) = 0 }\:$ for that matter. Moreover assuming the $\: \mathtt{f} \:$, to be either balanced or constant comprises the wide range of possible boolean functions.
+A collection of quantum-computing problems, thought experiments, and explanations built around a habit I picked up while teaching myself quantum algorithms:
 
-To deal with this I have made a slight modification to or regular DJ algorithm, such that it allows us to probe into the nature of the boolean function by recasting necessary information into the amplitude of ancilla qubits. Once we done, we can read off the required iinformation from the probability distribution of the ancilla qubit itself. Below I give a brief overview of the algorithm and then move on to an example implementation
+> **Take something familiar, change one of the assumptions that makes it work, and see what survives.**
 
-### **[Database lookup](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/database_lookup_algorithm.ipynb)**
+A lot of the earlier problems here began when I was an undergraduate trying to learn quantum computing on my own.
 
-Here our aim is to check whether a particular lookup ket say $\ket{\phi}$ exists within a set of provided set of kets say $\mathcal{S} = \{ \ket{\psi_1}, \ket{\psi_2}, .. . ,\ket{\psi_n }  \}$, and if so then what is the index of that particular ket in $\mathcal{S}$. For example, if $\ket{\phi} = \ket{\psi_3}$ we want to know the index $3$ using our algorithm.
+Quantum algorithms often felt stranger to me than classical algorithms. With classical algorithms, I was used to pulling a problem apart: remove an operation, weaken an assumption, change the input model, and see where the original method stops working.
 
-In later generalisation we can try to compare two different sets , say $\mathcal{S_1}$ and $\mathcal{S_2}$ to find an estimate of the number of elements at the intersection of of two sets, and the idexto those elements too.
+So I started doing the same thing with quantum algorithms.
 
-Note also that we want our algorithm to work even while the elements of $\mathcal{S}s$ are not all orthogonal to each other, as otherwise it would be of no real to use a quantum computer in the first place.geves
+Instead of only asking *how does this algorithm work?*, I would ask what happens when one of the primitives it normally gets for free suddenly disappears.
 
+## Problems from when I was learning
 
-### **[Entanglement Preserving Partial Grover](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/entanglement_preserving%20_grover.ipynb)**
+These mostly started as attempts to teach myself familiar quantum algorithms by deliberately making their lives more difficult.
 
-Assume that you have a state of form,
-$\ket{\psi} \:=\: c_g \ket{g}\ket{f(g)} \:+\: c_b \ket{b}\ket{f(b)}$
-where $\ket{g}$ is something we refer as `good` states and $\ket{b}$ as `bad` states and $f$ is a randomised black box function of whose action is not known to us i.e we do not know what $\ket{f(g)}$ or $\ket{f(b)}$ is, moreover it might yield different values upon every call, but it is somehow dependent on the ket to which it is entangeld to i.e either $\ket{g}$ or $\ket{b}$
+### [Can You Check a Palindrome When Equality Is Not Free?](Algorithms/How-to-Palindrome-When-its-Quantum.md)
 
-Given this the challenge is to amplify the states corresponding to the `good` states $c_g$. Notice that regular `Grover Search` cannot be used in this case because we do not have sufficient information about the initial state $\ket{\psi}$ to construct the `diffuser`!
+Palindrome checking is easy when `a == b` is free. What happens when the symbols are quantum states that may not be perfectly distinguishable?
 
+### [Deutsch–Jozsa but Realistic](Algorithms/DJ-Algorithm-but-Realistic.md)
 
-### **[Checking whether a given sequence is a Palindrome](https://github.com/pafloxy/QuantumAlgorithmsCollect/blob/main/Algorithms/quantum-palindrome-check.ipynb)**
-To check whether a given sequence is a palindrome or not is a classic programming problem. Recently I came across a quantum version of it at [qosf-monthly-challenges](https://github.com/qosf/monthly-challenges), where the challenge was to check whether a given sequence of integer is a palindrome or not by using a QRAM structure with added comparators. However, here I will show how we can check for a palindorme even if the alphabets choosen is quantum one, thus genralising the idea of palindrome checking! And it will be an efficient one ...
+Drop the constant-versus-balanced promise. Can the same basic machinery tell us something quantitative about a general Boolean function instead?
 
+### [How Do You Search a Quantum Database?](Algorithms/How-to-Search-Quantum-Databases.md)
 
-### **[Uniform superposition of Permutations and Secret Sharing](https://github.com/pafloxy/QuantumPermutationSecretSharing/blob/main/Tutorial_QPSS.ipynb)**
-Here the aim was to design a quantum circuit that could create a uniform suoerposition of a given string of quantum algorithms. We then explore its possible applications to a permutation based secret-sharing algorithm. 
+Suppose both the query and the database entries are quantum states. Comparing them is one problem; recovering the actual matching index is another.
 
+### [How to Do Grover When You Don't Know What You Are Looking For](Algorithms/How-to-Grover-When-You-don't-know-What-to-Look-For.md)
 
+Suppose an expensive oracle can identify the good branch, but you may use it only once. What, if anything, survives of Grover-style amplitude amplification?
 
+The idea behind most of these was simple:
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+```text
+familiar quantum algorithm
+          ↓
+remove something it normally gets for free
+          ↓
+what was that primitive actually doing?
+```
 
-[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+## Problems that grew out of research
+
+Years later, during my PhD, I found myself doing almost the reverse.
+
+Now the starting point can be a problem coming directly from quantum-computing research. Instead of making a familiar algorithm stranger, I try to strip away enough quantum formalism that the underlying algorithmic problem becomes familiar again.
+
+### [How Quantum Computing Gets You to a Nightclub](Algorithms/How-Quantum-Computing-Gets-You-To-A-Nightclub.md)
+
+This one grew out of ideas I worked on during my PhD.
+
+The exposition begins with a nightclub queue: creatures with badge codes, bouncers, masks, and rules about who may move past whom.
+
+Underneath the story is a problem about dependencies, compatibility, rewriting operations, and deciding which parts of a quantum computation can actually matter to a chosen output.
+
+The nightclub is not just an analogy pasted on top of the mathematics. The point is to expose a classical combinatorial problem that was already hiding inside the quantum one.
+
+```text
+quantum research problem
+          ↓
+strip away the unnecessary formalism
+          ↓
+what algorithmic structure is underneath?
+```
+
+I expect more of the newer problems in this repository to come from this direction.
+
+## The common thread
+
+Some entries here contain complete constructions. Some deliberately stop at the point where the interesting unresolved problem begins. Some are closer to puzzles than tutorials.
+
+They span different stages of how I learned and worked with quantum computing, but the instinct behind them has stayed surprisingly constant:
+
+> **Remove a primitive, weaken an assumption, or change the representation — and use what changes to understand the problem better.**
+
+**The problems changed; the way I like to understand them did not.**
